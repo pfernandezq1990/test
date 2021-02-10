@@ -9,6 +9,8 @@ namespace Reserva.Data.Models {
 
         public string Name { get; set; }
 
+        public string ContactType { get; set;}
+        
         public int Phone { get; set; }
 
         public DateTime Birthdate { get; set; }

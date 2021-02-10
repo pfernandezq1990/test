@@ -15,7 +15,7 @@ namespace Reserva.Web.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class ContactController : ControllerBase{
+    public class ContactController : ControllerBase {
         private readonly ReservationDbContext _context;
 
         public ContactController(ReservationDbContext context) {
@@ -56,7 +56,7 @@ namespace Reserva.Web.Controllers
             {
                 return BadRequest();
             }
-
+    
             _context.Entry(contact).State = EntityState.Modified;
 
             try
