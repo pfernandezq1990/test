@@ -2,7 +2,7 @@
 
   <v-app>   
 
-    <AppBar />
+    <AppBar :link="getLink" :text="getText"/>
 
     <v-main>
       <v-container fluid>
@@ -20,7 +20,24 @@ export default {
 
   components: { AppBar},
   data: () => ({
-    //
+    linkTo: "/CreateReservation",
+    textTo: "Create Reservation",
   }),
+
+  mounted() {
+    this.link();
+    this.text();
+  },
+
+  computed: {
+    getLink() {
+      return this.$store.getters.Link;
+    },
+
+    getText() {
+      return this.$store.getters.Text;
+    }
+  },
+  
 };
 </script>

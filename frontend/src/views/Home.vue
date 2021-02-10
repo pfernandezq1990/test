@@ -1,18 +1,7 @@
 <template>
   <div class="home">
       <v-container>
-        <v-row justify="space-around" align="center">
-
-          <v-col cols="12" xs="12" sm="4" md="4">
-            <h2 class="red--text">Reservation List</h2>
-          </v-col>
-          <v-col cols="12" xs="12" md="4" lg="4">
-            <span class="text--subtitle-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, neque laborum. Voluptatibus odit quis temporibus asperiores</span>
-          </v-col>
-          <v-col cols="12" xs="12" md="4" lg="4" class="d-none d-sm-flex">
-            <v-btn rounded color="grey" class="white--text"> Create Reservation </v-btn>
-          </v-col>
-        </v-row>
+        <ToolBar :title="title" :description="description" :btnText="btnText" :linkBtn="linkBtn"/>
       </v-container>     
 
       <v-container class="my-5">
@@ -63,6 +52,7 @@
 </template>
 
 <script>
+import ToolBar from '../components/ToolBar'
 export default { 
   name: "home",
   data() {
@@ -76,11 +66,21 @@ export default {
         "By Alphabetic Descending",
         "By Ranking"
       ],  
+      title: "Reservation List",
+      description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique illum recusandae itaque, ipsam sequi reiciendis reprehenderit ab perspiciatis",
+      btnText: "Create Reservation",
+      linkBtn:"/CreateReservation",
     }
+  },
+
+  components: {
+    ToolBar
   },
 
   mounted() {
     this.LoadReservations();
+    this.linkTo();
+    this.textTo();
   }, 
 
   computed: {
@@ -123,6 +123,14 @@ export default {
 
     addFavorite(id) {
       
+    },
+
+    linkTo() {
+      this.$store.dispatch("link", "/CreateReservation")
+    },
+
+    textTo() {
+      this.$store.dispatch("text", "Create Reservation")
     }
   }
   

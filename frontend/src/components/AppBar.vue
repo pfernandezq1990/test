@@ -22,6 +22,8 @@
           <span class="d-none d-sm-flex mx-4 text-subtitle-1">
             World Class <br> Software Development
           </span>
+          <v-spacer></v-spacer>
+          <v-btn v-if="link != null" text :to="link">{{text}}</v-btn>
       </v-container>
 
     </v-app-bar>
@@ -32,6 +34,16 @@
 <script>
 
 export default {
+  props: {
+    link: {
+      type: String,
+      required: true,
+    },
+    text: {
+      type: String,
+      required: true,
+    }
+  }
 }
 </script>
 
