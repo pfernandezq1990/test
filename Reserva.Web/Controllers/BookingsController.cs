@@ -32,7 +32,7 @@ namespace Reserva.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Reservation>> Post([FromForm] Reservation reservation) {
+        public async Task<ActionResult<Reservation>> Post([FromBody] Reservation reservation) {
             _context.Bookings.Add(reservation);
             await _context.SaveChangesAsync();
 

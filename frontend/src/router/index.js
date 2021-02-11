@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
 import CreateReservation from '../views/CreateReservation.vue'
+import AddContact from '../views/AddContact.vue'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,11 @@ const routes = [
     path: '/CreateReservation',
     name: 'CreateReservation',
     component: CreateReservation,
+  },
+  {
+    path: '/AddContact',
+    name: 'AddContact',
+    component:  AddContact,
   }
 ]
 

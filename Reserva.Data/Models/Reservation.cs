@@ -13,7 +13,7 @@ namespace Reserva.Data.Models{
         [Required]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "0:dd-MM", ApplyFormatInEditMode = true)]
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; }        
 
         [Range(1, 5)]
         [Required]

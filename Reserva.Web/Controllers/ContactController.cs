@@ -32,7 +32,7 @@ namespace Reserva.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Contact>> Post([FromForm] Contact contact) {
+        public async Task<ActionResult<Contact>> Post([FromBody] Contact contact) {
             _context.Contacts.Add(contact);
             await _context.SaveChangesAsync();
             

@@ -18,7 +18,7 @@ namespace Reserva.Data.Models {
         public string Name { get; set; }
 
         [Required]
-        public ContactType? ContactType { get; set;}
+        public string ContactType { get; set;}
         
         [Required]
         public int Phone { get; set; }
