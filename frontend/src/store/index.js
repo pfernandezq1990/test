@@ -7,12 +7,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     Reservations: [],
+    Contacts: [],
     Link: "",
     Text: "",
   },
   getters: {
     Reservations(state) {
       return state.Reservations;
+    },
+
+    Contacts(state) {
+      return state.Contacts;
     },
 
     Link(state) {
@@ -26,6 +31,10 @@ export default new Vuex.Store({
   mutations: {
     Reservations(state, data) {
       state.Reservations = data;
+    },
+
+    Contacts(state, data) {
+      state.Contacts = data;
     },
 
     Link(state, link) {
@@ -44,6 +53,15 @@ export default new Vuex.Store({
 
         localStorage.setItem("Reservations", data);
         context.commit("Reservations", data);
+      })
+    },
+
+    loadContacts(context, api) {
+      axios.get(api).then((Response) => {
+        const data = Response.data;
+
+        localStorage.setItem("Contacts", data);
+        context.commit("Contacts", data);
       })
     },
 

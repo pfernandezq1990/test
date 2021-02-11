@@ -29,11 +29,13 @@ namespace Reserva.Data.Migrations
                     b.Property<DateTime>("Birthdate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<string>("ContactType")
-                        .HasColumnType("text");
+                    b.Property<int>("ContactType")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Name")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("character varying(50)");
 
                     b.Property<int>("Phone")
                         .HasColumnType("integer");
@@ -63,7 +65,9 @@ namespace Reserva.Data.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("Title")
-                        .HasColumnType("text");
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("character varying(60)");
 
                     b.HasKey("Id");
 

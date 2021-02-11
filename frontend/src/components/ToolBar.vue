@@ -1,6 +1,5 @@
 <template>
   <v-row justify="space-around" align="center">
-
           <v-col cols="12" xs="12" sm="4" md="4">
             <h2 class="red--text">{{title}}</h2>
           </v-col>

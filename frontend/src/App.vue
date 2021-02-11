@@ -25,8 +25,8 @@ export default {
   }),
 
   mounted() {
-    this.link();
-    this.text();
+    this.getLink;
+    this.getText;
   },
 
   computed: {

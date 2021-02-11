@@ -23,7 +23,7 @@
             World Class <br> Software Development
           </span>
           <v-spacer></v-spacer>
-          <v-btn v-if="link != null" text :to="link">{{text}}</v-btn>
+          <v-btn class="d-flex d-sm-none" v-if="link != null" text :to="link">{{text}}</v-btn>
       </v-container>
 
     </v-app-bar>

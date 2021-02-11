@@ -4,7 +4,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Reserva.Data.Migrations
 {
-    public partial class InitialMigrations : Migration
+    public partial class AddContactType : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,8 @@ namespace Reserva.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Name = table.Column<string>(type: "text", nullable: true),
+                    Name = table.Column<string>(type: "character varying(50)", maxLength: 50, nullable: false),
+                    ContactType = table.Column<int>(type: "integer", nullable: false),
                     Phone = table.Column<int>(type: "integer", nullable: false),
                     Birthdate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
@@ -29,7 +30,7 @@ namespace Reserva.Data.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    Title = table.Column<string>(type: "text", nullable: true),
+                    Title = table.Column<string>(type: "character varying(60)", maxLength: 60, nullable: false),
                     Date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     Ranking = table.Column<int>(type: "integer", nullable: false),
                     Favorite = table.Column<bool>(type: "boolean", nullable: false),
