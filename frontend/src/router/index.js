@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import CreateReservation from '../views/CreateReservation.vue'
 import AddContact from '../views/AddContact.vue'
+import Contacts from '../views/Contacts.vue'
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/AddContact',
     name: 'AddContact',
     component:  AddContact,
+  },
+  {
+    path: '/Contacts',
+    name: 'Contacts',
+    component:  Contacts,
   }
 ]
 

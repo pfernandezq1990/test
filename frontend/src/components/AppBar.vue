@@ -23,7 +23,8 @@
             World Class <br> Software Development
           </span>
           <v-spacer></v-spacer>
-          <v-btn class="d-flex d-sm-none" v-if="link != null" text :to="link">{{text}}</v-btn>
+          <v-btn v-if="link != null" text :to="link">{{text}}</v-btn>
+          <v-btn  text :to="contacts">Contacts</v-btn>
       </v-container>
 
     </v-app-bar>
@@ -43,7 +44,12 @@ export default {
       type: String,
       required: true,
     }
-  }
+  },
+  data() {
+    return {
+      contacts: "/Contacts",
+    }
+  },
 }
 </script>
 

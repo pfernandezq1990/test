@@ -57,8 +57,8 @@ export default new Vuex.Store({
     },
 
     loadContacts(context, api) {
-      axios.get(api).then((Response) => {
-        const data = Response.data;
+      axios.get(api).then((response) => {
+        const data = response.data;
 
         localStorage.setItem("Contacts", data);
         context.commit("Contacts", data);

@@ -11,7 +11,6 @@
     <v-card max-width="374" class="mx-auto my-12" color="white" elevation="5">
       <v-card-title>
         <v-icon large>mdi-account-plus</v-icon>
-        
       </v-card-title>
       <v-card-text>
         <validation-observer ref="observer" v-slot="{ invalid }">
@@ -48,44 +47,20 @@
               name="phoneNumber"
               :rules="{
                 required: true,
-                digits: 12,
+                digits: 10,
               }"
             >
               <v-text-field
                 v-model="phoneNumber"
-                :counter="12"
+                :counter="10"
                 :error-messages="errors"
                 label="Phone Number"
                 required
               ></v-text-field>
             </validation-provider>
 
-            <v-menu
-              ref="menu"
-              v-model="menu"
-              :close-on-content-click="false"
-              transition="scale-transition"
-              offset-y
-              min-width="auto"
-            >
-              <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  v-model="date"
-                  label="Birthday date"
-                  prepend-icon="mdi-calendar"
-                  readonly
-                  v-bind="attrs"
-                  v-on="on"
-                ></v-text-field>
-              </template>
-              <v-date-picker
-                ref="picker"
-                v-model="date"
-                :max="new Date().toISOString().substr(0, 10)"
-                min="1950-01-01"
-                @change="save"
-              ></v-date-picker>
-            </v-menu>
+            <v-datetime-picker label="Select Datetime" v-model="date">
+            </v-datetime-picker>
 
             <v-btn class="mr-4" type="submit" :disabled="invalid">
               submit
@@ -100,6 +75,7 @@
 
 <script>
 import axios from "axios";
+import DatetimePicker from "vuetify-datetime-picker";
 import { required, digits, max } from "vee-validate/dist/rules";
 import {
   extend,
@@ -160,6 +136,7 @@ export default {
     ToolBar,
     ValidationProvider,
     ValidationObserver,
+    DatetimePicker,
   },
 
   mounted() {
@@ -183,16 +160,20 @@ export default {
       this.$refs.observer.validate();
       let datos = {
         name: this.name,
-        ContactType: this.type,
+        contactType: this.type,
         phone: this.phoneNumber,
-        birthdate: this.date,        
+        birthdate: this.date,
       };
       axios
-        .post("https://localhost:5001/api/contact", datos,  {     headers: {         'Content-Type': 'application/json'     } })
-        .then(() => {
+        .post("https://localhost:5001/api/contact", datos)
+        .then((response) => {
+          console.log(response);
           this.$router.push({ name: "Home" });
+        })
+        .catch((error) => {
+          console.log(error.response);
         });
-    }, 
+    },
 
     toFormData(obj) {
       var formData = new FormData();

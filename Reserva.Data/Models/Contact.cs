@@ -21,11 +21,11 @@ namespace Reserva.Data.Models {
         public string ContactType { get; set;}
         
         [Required]
-        public int Phone { get; set; }
+        public string Phone { get; set; }
 
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM", ApplyFormatInEditMode = true)]
         public DateTime Birthdate { get; set; }
         public virtual ICollection<Reservation> Bookings { get; set; }
 
