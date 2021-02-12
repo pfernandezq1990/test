@@ -1,17 +1,33 @@
 <template>
   <div class="Contacs">
-    <Table :headers="headers" :title="title" :items="Tolist" />
+    <v-container>
+      <ToolBar
+        :title="title"
+        :description="description"
+        :btnText="btnText"
+        :linkBtn="linkBtn"
+      />
+    </v-container>
+    <v-container class="my-5">
+      <Table :headers="headers" :title="titleTable" :items="Tolist" :api="api" />
+    </v-container>
   </div>
 </template>
 
 <script>
 import Table from "../components/Table";
+import ToolBar from '../components/ToolBar'
+
 export default {
   name: "Contacs",
   data() {
     return {
       api: "https://localhost:5001/api/contact",
-      title: "Contacts List",
+      titleTable: "Contacts List",
+      title: "",
+      description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique illum recusandae itaque, ipsam sequi reiciendis reprehenderit ab perspiciatis",
+      btnText: "Create Reservation",
+      linkBtn:"/CreateReservation",
       headers: [
         {
           text: "Name",
@@ -43,7 +59,7 @@ export default {
     };
   },
   components: {
-    Table,
+    Table, ToolBar
   },
 
   mounted() {

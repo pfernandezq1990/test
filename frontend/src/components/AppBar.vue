@@ -5,7 +5,7 @@
       fixed 
       color="#fcb69f"
       dark
-      src=""
+      src="https://picsum.photos/1920/1080?random"
       prominent      
     >
       <template v-slot:img="{ props }">

@@ -51,7 +51,7 @@ namespace Reserva.Web.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Contact>> Put(int id, [FromForm] Contact contact) {
+        public async Task<ActionResult<Contact>> Put(int id, [FromBody] Contact contact) {
             if (id != contact.Id)
             {
                 return BadRequest();
